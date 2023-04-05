@@ -39,6 +39,4 @@ function bb() {
         alert("3 스트라이크 아웃! 게임을 종료합니다!");
         return;
     }
-
-
 }
