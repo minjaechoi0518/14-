@@ -1,42 +1,43 @@
-let crandom = [];
+let crandom = []
 
 while (crandom.length < 3) {
-    let bbrandom = Math.floor(Math.random() * 10);
+    let bbrandom = Math.floor(Math.random() * 10)
     if (!crandom.includes(bbrandom)) {
-        crandom.push(bbrandom);
+        crandom.push(bbrandom)
     }
 }
 
 function bb() {
-    let user = document.getElementById("user-input").value;
+    let user = document.getElementById("user-input").value
     if (user.length !== 3) {
-        alert("숫자 3개를 입력하세요");
-        return;
+        alert("숫자 3개를 입력하세요")
     }
 
-    let b = 0;
-    let s = 0;
+    let b = 0
+    let s = 0
+
+    tries = 0
 
     for (let i = 0; i < 3; i++) {
-        let random = crandom[i];
-        let bb = Number(user[i]);
+        let random = crandom[i]
+        let bb = Number(user[i])
 
         if (random === bb) {
-            s++;
+            s++
         } else if (crandom.includes(bb)) {
-            b++;
+            b++
         }
+        tries++
     }
-    tries = 0
-    tries++
+
     let temp_html = `<li>
-                    <p>${tries}시도</p>
-                    <p>${b}B${s}S</p>
-                  </li>`;
-    $("#try-list").append(temp_html);
+                        <p>${tries}시도</p>
+                        <p>${b}B${s}S</p>
+                    </li>`
+    $("#try-list").append(temp_html)
 
     if (s === 3) {
-        alert("3 스트라이크 아웃! 게임을 종료합니다!");
-        return;
+        alert('3 스트라이크 아웃! 게임을 종료합니다!')
+        window.location.reload()
     }
 }
