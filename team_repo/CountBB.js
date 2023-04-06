@@ -1,5 +1,7 @@
 let crandom = []
 
+tries = 0
+
 while (crandom.length < 3) {
     let bbrandom = Math.floor(Math.random() * 10)
     if (!crandom.includes(bbrandom)) {
@@ -16,8 +18,6 @@ function bb() {
     let b = 0
     let s = 0
 
-    tries = 0
-
     for (let i = 0; i < 3; i++) {
         let random = crandom[i]
         let bb = Number(user[i])
@@ -27,7 +27,7 @@ function bb() {
         } else if (crandom.includes(bb)) {
             b++
         }
-        tries++
+        
     }
 
     let temp_html = `<li>
@@ -35,6 +35,8 @@ function bb() {
                         <p>${b}B${s}S</p>
                     </li>`
     $("#try-list").append(temp_html)
+
+    tries++
 
     if (s === 3) {
         alert('3 스트라이크 아웃! 게임을 종료합니다!')
